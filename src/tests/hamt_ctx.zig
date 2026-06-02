@@ -57,7 +57,7 @@ test "hamt: custom kv lifecycle (deep copy and free)" {
     defer h.deinit(allocator);
 
     // Create data on stack (Unmanaged lists default to empty/null)
-    var list = FloatList{};
+    var list: FloatList = .empty;
     // Note: Unmanaged lists require passing the allocator to append/deinit
     defer list.deinit(allocator);
     try list.append(allocator, 1.1);
@@ -86,14 +86,14 @@ test "hamt: custom kv persistence (structural sharing with deep data)" {
     var h1 = MyHamt.init();
     defer h1.deinit(allocator);
 
-    var list1 = FloatList{};
+    var list1: FloatList = .empty;
     defer list1.deinit(allocator);
     try list1.append(allocator, 10.0);
 
     // h1 = { "a": [10.0] }
     try h1.assocMut(allocator, "a", list1);
 
-    var list2 = FloatList{};
+    var list2: FloatList = .empty;
     defer list2.deinit(allocator);
     try list2.append(allocator, 20.0);
 
@@ -118,7 +118,7 @@ test "hamt: deep removal logic" {
     var h = MyHamt.init();
     defer h.deinit(allocator);
 
-    var list = FloatList{};
+    var list: FloatList = .empty;
     defer list.deinit(allocator);
     try list.append(allocator, 42.0);
 
@@ -152,7 +152,7 @@ test "hamt: collision handling" {
     var h = BadHamt.init();
     defer h.deinit(allocator);
 
-    var list = FloatList{};
+    var list: FloatList = .empty;
     defer list.deinit(allocator);
     try list.append(allocator, 100.0);
 
@@ -190,11 +190,11 @@ test "persistent hamt: collision handling 2" {
     var h0 = BadHamt.init();
     defer h0.deinit(allocator);
 
-    var list = FloatList{};
+    var list: FloatList = .empty;
     defer list.deinit(allocator);
     try list.append(allocator, 100.0);
 
-    var list2 = FloatList{};
+    var list2: FloatList = .empty;
     defer list2.deinit(allocator);
     try list2.append(allocator, 150.0);
 
@@ -253,11 +253,11 @@ test "persistent hamt: collision handling" {
     var h0 = BadHamt.init();
     defer h0.deinit(allocator);
 
-    var list100 = FloatList{};
+    var list100: FloatList = .empty;
     defer list100.deinit(allocator);
     try list100.append(allocator, 100.0);
 
-    var list150 = FloatList{};
+    var list150: FloatList = .empty;
     defer list150.deinit(allocator);
     try list150.append(allocator, 150.0);
 

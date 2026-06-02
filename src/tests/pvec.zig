@@ -14,9 +14,10 @@ test "multi ivector" {
 
     const allocator = gpa.allocator();
 
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -194,9 +195,10 @@ test "update" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -245,9 +247,10 @@ test "append" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -330,9 +333,10 @@ test "remove" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -405,9 +409,10 @@ test "iterator" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -440,9 +445,10 @@ test "multi vec backend" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -483,9 +489,10 @@ test "multi vec append" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -572,9 +579,10 @@ test "multi vec remove" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -656,9 +664,10 @@ test "to array" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -690,9 +699,10 @@ test "concat" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -737,9 +747,10 @@ test "multi field iter" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -819,9 +830,10 @@ test "multi iter" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -901,9 +913,10 @@ test "multi iter field slice" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -987,9 +1000,10 @@ test "multi iter field slice ptr" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
@@ -1073,9 +1087,10 @@ test "multi iter clone" {
     }
 
     const allocator = gpa.allocator();
+    const io = std.testing.io;
     var prng = std.Random.DefaultPrng.init(blk: {
         var seed: u64 = undefined;
-        try std.posix.getrandom(std.mem.asBytes(&seed));
+        io.random(std.mem.asBytes(&seed));
         break :blk seed;
     });
     const rand = prng.random();
